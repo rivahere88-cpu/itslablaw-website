@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F3EA">
+  <meta name="description" content="勞資數到三，結合 AI 智慧應用與台灣勞動法規知識，協助小老闆、自營創業者與微型企業理解勞基法，建立更清楚的勞資管理觀念。">
+  <meta property="og:title" content="勞資數到三｜AI 智慧勞資知識，讓創業經營更安心">
+  <meta property="og:description" content="把複雜的勞基法，變成小老闆聽得懂、用得上的經營知識。">
+  <meta property="og:type" content="website">
+  <title>勞資數到三｜AI 智慧勞資知識，讓創業經營更安心</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --forest: #355747;
+      --sage: #9EAF9B;
+      --mist: #DCE5D8;
+      --ivory: #F6F3EA;
+      --oat: #E6DDCE;
+      --terracotta: #C87858;
+      --deep-forest: #26372E;
+      --blue: var(--forest);
+      --blue-deep: var(--deep-forest);
+      --purple: var(--terracotta);
+      --mint: var(--sage);
+      --ink: var(--deep-forest);
+      --muted: var(--forest);
+      --line: var(--oat);
+      --paper: var(--ivory);
+      --soft: var(--ivory);
+      --pale-blue: var(--mist);
+      --radius-xl: 28px;
+      --shadow-card: 0 18px 50px rgba(38, 55, 46, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0; color: var(--ink); background: var(--paper);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x: clip;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button, input { font: inherit; }
+    button:focus-visible, a:focus-visible { outline: 3px solid rgba(37,99,235,.45); outline-offset: 4px; }
+    .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .section { padding: 112px 0; position: relative; }
+    .section-soft { background: linear-gradient(180deg, #fbfdff 0%, #f8fafc 100%); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--blue);
+      font-size: .82rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    .section-heading { max-width: 720px; margin: 0 auto 54px; text-align: center; }
+    .section-heading h2 { margin: 16px 0 14px; font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.28; letter-spacing: -.045em; font-weight: 800; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: clamp(.98rem, 1.5vw, 1.08rem); line-height: 1.95; }
+    .gradient-text { color: var(--blue); background: linear-gradient(105deg, var(--blue) 12%, var(--purple) 88%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* Navigation */
+    .site-header { position: fixed; z-index: 50; inset: 0 0 auto; height: 82px; border-bottom: 1px solid rgba(226,232,240,.72); background: rgba(255,255,255,.84); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); transition: box-shadow .25s ease, background .25s ease; }
+    .site-header.is-scrolled { box-shadow: 0 8px 30px rgba(15,23,42,.045); background: rgba(255,255,255,.94); }
+    .nav-inner { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; flex-shrink: 0; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #3b82f6, #7c3aed); box-shadow: 0 8px 20px rgba(59,130,246,.22); }
+    .brand-name { font-weight: 800; letter-spacing: -.045em; font-size: 1.13rem; white-space: nowrap; }
+    .brand-name small { display: block; font-size: .62rem; letter-spacing: .13em; color: #94a3b8; font-weight: 700; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 32px); margin-left: auto; }
+    .nav-links a { color: #475569; font-size: .9rem; font-weight: 600; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta, .btn-primary { display: inline-flex; justify-content: center; align-items: center; gap: 9px; border: 0; border-radius: 999px; padding: 13px 21px; min-height: 48px; color: white; font-weight: 700; font-size: .92rem; background: linear-gradient(105deg, #2563eb, #6d4be7); box-shadow: 0 10px 24px rgba(37,99,235,.2); transition: transform .22s ease, box-shadow .22s ease, filter .22s ease; cursor: pointer; }
+    .nav-cta { min-height: 43px; padding: 10px 18px; font-size: .86rem; white-space: nowrap; }
+    .nav-cta:hover, .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(37,99,235,.25), 0 0 0 4px rgba(16,185,129,.08); filter: saturate(1.08); }
+    .btn-primary:active, .nav-cta:active { transform: translateY(0); }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 20px; min-height: 48px; border: 1px solid #dbe5f4; border-radius: 999px; color: #1e40af; background: rgba(255,255,255,.8); font-size: .92rem; font-weight: 700; transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease; }
+    .btn-secondary:hover { transform: translateY(-2px); border-color: #b8c9f9; box-shadow: 0 10px 25px rgba(37,99,235,.08); background: #fff; }
+    .cta-status { display: inline-flex; align-items: center; gap: 7px; font-size: .76rem; color: #059669; font-weight: 700; opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; }
+    .cta-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 3px rgba(16,185,129,.12); }
+    .cta-wrap:hover .cta-status, .cta-wrap:focus-within .cta-status { opacity: 1; transform: translateY(0); }
+    .menu-toggle { display: none; width: 44px; height: 44px; place-items: center; border: 1px solid var(--line); border-radius: 13px; background: white; color: var(--ink); cursor: pointer; }
+
+    /* Hero */
+    .hero { min-height: 760px; padding: 154px 0 84px; overflow: hidden; display: flex; align-items: center; background: radial-gradient(ellipse at 78% 28%, rgba(219,234,254,.62), transparent 31%), radial-gradient(ellipse at 95% 74%, rgba(237,233,254,.48), transparent 28%), linear-gradient(180deg,#fff 0%,#fbfdff 100%); }
+    .hero::before { content: ""; position: absolute; inset: 82px 0 0; pointer-events: none; opacity: .42; background-image: linear-gradient(rgba(147,197,253,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(147,197,253,.12) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent 15%, #000 68%, transparent 100%); }
+    .hero-layout { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(420px, .96fr); align-items: center; gap: clamp(30px, 5vw, 72px); }
+    .hero-copy { position: relative; z-index: 3; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 9px; padding: 8px 13px; border: 1px solid #dbeafe; border-radius: 999px; background: rgba(255,255,255,.84); color: #3157a8; font-size: .78rem; font-weight: 700; box-shadow: 0 5px 18px rgba(37,99,235,.05); }
+    .hero-badge .spark { display: grid; place-items: center; width: 21px; height: 21px; border-radius: 8px; color: white; background: linear-gradient(135deg,#3b82f6,#8b5cf6); }
+    .hero h1 { max-width: 690px; min-height: 2.6em; margin: 24px 0 20px; font-size: clamp(2.55rem, 5vw, 4.35rem); line-height: 1.24; font-weight: 800; letter-spacing: -.065em; }
+    .hero h1 .accent-line { display: inline; color: var(--blue); background: linear-gradient(110deg, #2563eb 9%, #6d4be7 91%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .typing-cursor { display: inline-block; vertical-align: -.03em; width: 3px; height: .88em; margin-left: 5px; border-radius: 3px; background: #6d4be7; animation: cursor-blink 1s step-end infinite; }
+    @keyframes cursor-blink { 50% { opacity: 0; } }
+    .hero-subtitle { max-width: 600px; margin: 0 0 14px; color: #334155; font-size: clamp(1.13rem, 1.8vw, 1.34rem); line-height: 1.75; font-weight: 700; letter-spacing: -.025em; }
+    .hero-description { max-width: 590px; margin: 0; color: var(--muted); font-size: 1rem; line-height: 2; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 30px; }
+    .hero-microcopy { display: flex; flex-wrap: wrap; align-items: center; gap: 17px; margin-top: 25px; color: #64748b; font-size: .8rem; }
+    .hero-microcopy span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-microcopy svg { color: #10b981; }
+
+    /* Hero visual: custom, lightweight CSS/SVG illustration */
+    .hero-visual { min-height: 505px; position: relative; display: grid; place-items: center; isolation: isolate; }
+    .visual-orb { position: absolute; z-index: -1; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, rgba(255,255,255,.98) 0%, rgba(219,234,254,.86) 22%, rgba(196,181,253,.34) 48%, rgba(239,246,255,0) 72%); filter: blur(2px); animation: orb-breathe 7s ease-in-out infinite alternate; }
+    @keyframes orb-breathe { from { transform: scale(.96); opacity: .8; } to { transform: scale(1.04); opacity: 1; } }
+    .network-lines { position: absolute; inset: 3% 0 0; width: 100%; height: 94%; overflow: visible; opacity: .75; }
+    .network-lines path { stroke-dasharray: 5 8; animation: dash-flow 24s linear infinite; }
+    @keyframes dash-flow { to { stroke-dashoffset: -180; } }
+    .visual-core { position: relative; display: grid; place-items: center; width: 205px; height: 205px; border: 1px solid rgba(147,197,253,.8); border-radius: 50%; background: radial-gradient(circle at 32% 25%, #fff 0%, rgba(239,246,255,.92) 40%, rgba(221,214,254,.75) 100%); box-shadow: inset 0 0 38px rgba(255,255,255,.9), 0 26px 65px rgba(59,130,246,.15), 0 0 0 17px rgba(219,234,254,.25), 0 0 0 34px rgba(221,214,254,.12); }
+    .core-inner { display: grid; place-items: center; width: 115px; height: 115px; border: 1px solid rgba(255,255,255,.9); border-radius: 35px; color: white; background: linear-gradient(145deg,#3b82f6,#7c3aed); box-shadow: 0 18px 36px rgba(91,80,210,.24), inset 0 1px 0 rgba(255,255,255,.45); transform: rotate(-7deg); }
+    .core-inner svg { transform: rotate(7deg); }
+    .core-caption { position: absolute; bottom: 26px; text-align: center; color: #475569; font-size: .7rem; font-weight: 800; letter-spacing: .19em; }
+    .visual-card { position: absolute; z-index: 3; display: flex; align-items: center; gap: 12px; min-width: 188px; padding: 14px 16px; border: 1px solid rgba(226,232,240,.9); border-radius: 18px; background: rgba(255,255,255,.86); backdrop-filter: blur(16px); box-shadow: 0 16px 36px rgba(15,23,42,.09); animation: float-card 6s ease-in-out infinite; }
+    .visual-card .card-icon { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border-radius: 13px; background: #eff6ff; color: var(--blue); }
+    .visual-card strong { display: block; font-size: .88rem; line-height: 1.4; }
+    .visual-card small { display: block; color: #94a3b8; font-size: .7rem; margin-top: 3px; }
+    .visual-card.card-contract { top: 63px; left: -2px; animation-delay: -.8s; }
+    .visual-card.card-clock { top: 92px; right: -4px; animation-delay: -2.3s; }
+    .visual-card.card-salary { bottom: 82px; left: -18px; animation-delay: -3.6s; }
+    .visual-card.card-check { bottom: 48px; right: -3px; animation-delay: -1.2s; }
+    @keyframes float-card { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    .tiny-label { position: absolute; top: 23px; left: 50%; transform: translateX(-50%); color: #8aa3d7; font-size: .67rem; letter-spacing: .2em; font-weight: 800; white-space: nowrap; }
+    .visual-dot { position: absolute; border-radius: 50%; background: linear-gradient(135deg,#60a5fa,#a78bfa); box-shadow: 0 0 0 6px rgba(147,197,253,.13); }
+    .visual-dot.d1 { width: 9px; height: 9px; top: 23%; left: 21%; }
+    .visual-dot.d2 { width: 7px; height: 7px; right: 18%; top: 42%; background: #6ee7b7; }
+    .visual-dot.d3 { width: 8px; height: 8px; bottom: 20%; right: 27%; }
+
+    /* Shared cards and content */
+    .about-grid { display: grid; grid-template-columns: 1.04fr .96fr; gap: clamp(36px, 6vw, 78px); align-items: center; }
+    .about-copy h2 { margin: 15px 0 22px; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.3; letter-spacing: -.05em; font-weight: 800; }
+    .about-copy p { color: var(--muted); line-height: 2.05; font-size: .98rem; margin: 0 0 16px; }
+    .about-copy p strong { color: #334155; font-weight: 700; }
+    .about-signoff { margin-top: 25px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 12px; color: #334155; font-weight: 800; }
+    .signoff-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 13px; color: var(--blue); background: #eff6ff; }
+    .about-visual { position: relative; min-height: 475px; display: grid; place-items: center; }
+    .about-panel { position: relative; width: min(100%, 430px); padding: 34px; border: 1px solid #e0eaff; border-radius: 30px; background: linear-gradient(145deg,rgba(255,255,255,.94),rgba(239,246,255,.76)); box-shadow: var(--shadow-card); overflow: hidden; }
+    .about-panel::before { content: ""; position: absolute; width: 220px; height: 220px; top: -120px; right: -55px; background: rgba(196,181,253,.36); filter: blur(42px); border-radius: 50%; }
+    .about-panel-top { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 36px; }
+    .about-panel-top small { color: #64748b; font-size: .73rem; font-weight: 700; letter-spacing: .08em; }
+    .live-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border-radius: 999px; color: #047857; background: #d1fae5; font-size: .68rem; font-weight: 800; }
+    .live-pill::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #10b981; }
+    .big-three { position: relative; font-size: clamp(6rem, 11vw, 8rem); line-height: .95; letter-spacing: -.09em; font-weight: 800; color: transparent; background: linear-gradient(145deg,#2563eb,#8b5cf6); -webkit-background-clip: text; background-clip: text; }
+    .three-caption { position: relative; margin-top: 10px; font-size: 1.1rem; font-weight: 800; letter-spacing: -.035em; }
+    .three-note { position: relative; margin-top: 9px; color: var(--muted); font-size: .89rem; line-height: 1.9; }
+    .step-list { position: relative; display: grid; gap: 12px; margin-top: 30px; }
+    .step-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid rgba(226,232,240,.88); border-radius: 15px; background: rgba(255,255,255,.75); }
+    .step-number { display: grid; place-items: center; width: 29px; height: 29px; flex: 0 0 29px; border-radius: 10px; color: var(--blue); background: #eff6ff; font-size: .75rem; font-weight: 800; }
+    .step-row span:last-child { color: #475569; font-size: .84rem; font-weight: 600; }
+    .floating-note { position: absolute; right: -2%; bottom: 7%; padding: 14px 16px; border: 1px solid #e2e8f0; border-radius: 17px; background: rgba(255,255,255,.9); box-shadow: 0 12px 30px rgba(15,23,42,.08); display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: .8rem; animation: float-card 6s ease-in-out infinite; }
+    .floating-note svg { color: #8b5cf6; }
+
+    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .service-card { position: relative; display: flex; flex-direction: column; min-height: 290px; padding: 27px 24px 24px; border: 1px solid #e5eaf2; border-radius: 23px; background: rgba(255,255,255,.92); box-shadow: 0 4px 16px rgba(15,23,42,.02); overflow: hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .service-card::after { content: ""; position: absolute; top: -70px; right: -70px; width: 155px; height: 155px; border-radius: 50%; background: var(--card-glow, rgba(59,130,246,.12)); filter: blur(25px); opacity: .6; transition: opacity .25s ease; }
+    .service-card:hover { transform: translateY(-6px); border-color: #c7d7fe; box-shadow: 0 22px 42px rgba(37,99,235,.09); }
+    .service-card:hover::after { opacity: 1; }
+    .service-icon { position: relative; z-index: 1; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 17px; color: var(--icon-color, var(--blue)); background: var(--icon-bg, #eff6ff); margin-bottom: 26px; }
+    .service-card h3 { position: relative; z-index: 1; margin: 0 0 12px; font-size: 1.07rem; font-weight: 800; letter-spacing: -.025em; }
+    .service-card p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.9; }
+    .card-link { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px; align-self: flex-start; margin-top: auto; padding-top: 24px; color: var(--blue); font-size: .82rem; font-weight: 800; }
+    .card-link svg { transition: transform .2s ease; }
+    .card-link:hover svg { transform: translateX(4px); }
+    .services-intro { max-width: 780px; margin: -26px auto 42px; color: var(--muted); line-height: 1.95; text-align: center; font-size: .95rem; }
+
+    /* Core products and technical solutions */
+    .solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .solution-card { position: relative; display: flex; flex-direction: column; min-height: 100%; padding: 30px 27px 27px; border: 1px solid #e5eaf2; border-radius: 24px; background: rgba(255,255,255,.94); box-shadow: 0 4px 16px rgba(15,23,42,.025); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; overflow: hidden; }
+    .solution-card::after { content: ""; position: absolute; width: 180px; height: 180px; top: -96px; right: -70px; border-radius: 50%; background: var(--solution-glow, rgba(59,130,246,.14)); filter: blur(25px); }
+    .solution-card:hover { transform: translateY(-6px); border-color: #c7d7fe; box-shadow: 0 22px 42px rgba(37,99,235,.09); }
+    .solution-icon { position: relative; z-index: 1; display: grid; place-items: center; width: 56px; height: 56px; margin-bottom: 25px; border-radius: 18px; color: var(--solution-color, var(--blue)); background: var(--solution-bg, #eff6ff); font-size: 1.25rem; }
+    .solution-card h3, .solution-card p, .solution-card .solution-link { position: relative; z-index: 1; }
+    .solution-card h3 { margin: 0 0 10px; font-size: 1.2rem; font-weight: 800; letter-spacing: -.03em; }
+    .solution-lead { margin: 0 0 17px; color: #475569; font-size: .9rem; line-height: 1.8; font-weight: 700; }
+    .solution-link { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: auto; padding-top: 24px; color: var(--solution-color, var(--blue)); font-size: .82rem; font-weight: 800; }
+    .solution-link i { transition: transform .2s ease; }
+    .solution-link:hover i { transform: translateX(4px); }
+
+    .knowledge-wrap { display: grid; grid-template-columns: .78fr 1.22fr; gap: 52px; align-items: start; }
+    .knowledge-intro { position: sticky; top: 120px; }
+    .knowledge-intro h2 { margin: 16px 0 17px; font-size: clamp(2rem, 3.4vw, 2.85rem); line-height: 1.3; font-weight: 800; letter-spacing: -.055em; }
+    .knowledge-intro p { color: var(--muted); line-height: 2; font-size: .96rem; margin: 0 0 25px; }
+    .knowledge-note { display: flex; align-items: flex-start; gap: 10px; padding: 14px 15px; border: 1px solid #dbeafe; border-radius: 15px; color: #45618a; background: #f0f7ff; font-size: .8rem; line-height: 1.8; }
+    .knowledge-note svg { flex: 0 0 auto; margin-top: 3px; color: var(--blue); }
+    .knowledge-list { display: grid; gap: 13px; }
+    .knowledge-card { display: grid; grid-template-columns: 64px minmax(0,1fr) auto; align-items: center; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: white; transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
+    .knowledge-card:hover { transform: translateX(4px); border-color: #c7d7fe; box-shadow: 0 12px 30px rgba(37,99,235,.06); }
+    .knowledge-symbol { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 18px; color: #2563eb; background: #eff6ff; }
+    .knowledge-card:nth-child(2) .knowledge-symbol { color: #7c3aed; background: #f5f3ff; }
+    .knowledge-card:nth-child(3) .knowledge-symbol { color: #0f9f88; background: #ecfdf5; }
+    .knowledge-card:nth-child(4) .knowledge-symbol { color: #d97706; background: #fffbeb; }
+    .knowledge-card:nth-child(5) .knowledge-symbol { color: #db2777; background: #fdf2f8; }
+    .knowledge-meta { display: block; margin-bottom: 6px; color: var(--blue); font-size: .72rem; font-weight: 800; letter-spacing: .04em; }
+    .knowledge-card h3 { margin: 0 0 7px; font-size: 1rem; line-height: 1.5; font-weight: 800; letter-spacing: -.02em; }
+    .knowledge-card p { margin: 0; color: var(--muted); font-size: .83rem; line-height: 1.8; }
+    .knowledge-arrow { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; color: #64748b; transition: color .2s ease, border-color .2s ease, background .2s ease; }
+    .knowledge-card:hover .knowledge-arrow { color: white; border-color: var(--blue); background: var(--blue); }
+
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .why-item { padding: 30px 24px; border: 1px solid #e7edf6; border-radius: 22px; background: white; transition: transform .24s ease, box-shadow .24s ease; }
+    .why-item:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(15,23,42,.06); }
+    .why-num { margin-bottom: 24px; color: #cbd5e1; font-size: .83rem; font-weight: 800; letter-spacing: .1em; }
+    .why-item h3 { margin: 0 0 11px; font-size: 1.05rem; font-weight: 800; }
+    .why-item p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.95; }
+    .why-icon { display: grid; place-items: center; width: 47px; height: 47px; margin-bottom: 20px; border-radius: 15px; color: var(--blue); background: #eff6ff; }
+
+    .consultation-section { padding: 90px 0 105px; }
+    .consultation-card { position: relative; overflow: hidden; padding: clamp(36px, 6vw, 72px); border: 1px solid rgba(199,210,254,.8); border-radius: 34px; text-align: center; background: radial-gradient(circle at 12% 10%, rgba(255,255,255,.95), transparent 25%), radial-gradient(circle at 92% 85%, rgba(196,181,253,.5), transparent 28%), linear-gradient(120deg,#eff6ff 0%,#f5f3ff 56%,#eef2ff 100%); box-shadow: 0 26px 70px rgba(79,70,229,.08); }
+    .consultation-card::before, .consultation-card::after { content: ""; position: absolute; border: 1px solid rgba(147,197,253,.38); border-radius: 50%; pointer-events: none; }
+    .consultation-card::before { width: 340px; height: 340px; left: -185px; bottom: -235px; }
+    .consultation-card::after { width: 450px; height: 450px; right: -260px; top: -310px; }
+    .consultation-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+    .consultation-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border: 1px solid rgba(191,219,254,.9); border-radius: 999px; color: #365ca6; background: rgba(255,255,255,.72); font-size: .78rem; font-weight: 800; }
+    .consultation-card h2 { margin: 21px 0 16px; font-size: clamp(2rem, 4.1vw, 3.25rem); line-height: 1.3; letter-spacing: -.05em; font-weight: 800; }
+    .consultation-card p { max-width: 660px; margin: 0 auto; color: #53647d; line-height: 2; font-size: .98rem; }
+    .consultation-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+    .consultation-footnote { margin-top: 18px !important; color: #7c8ba2 !important; font-size: .77rem !important; }
+
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .contact-copy h2 { margin: 15px 0 18px; max-width: 540px; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.3; font-weight: 800; letter-spacing: -.05em; }
+    .contact-copy p { margin: 0; color: var(--muted); max-width: 525px; font-size: .98rem; line-height: 2; }
+    .contact-links { display: grid; gap: 13px; }
+    .contact-link, .contact-placeholder { display: flex; align-items: center; gap: 15px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 19px; background: white; }
+    .contact-link { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .contact-link:hover { transform: translateY(-3px); border-color: #c7d7fe; box-shadow: 0 13px 28px rgba(37,99,235,.07); }
+    .contact-link-icon { display: grid; place-items: center; width: 47px; height: 47px; border-radius: 15px; color: var(--blue); background: #eff6ff; flex: 0 0 47px; }
+    .contact-link strong, .contact-placeholder strong { display: block; font-size: .9rem; font-weight: 800; }
+    .contact-link small, .contact-placeholder small { display: block; margin-top: 4px; color: #94a3b8; font-size: .76rem; }
+    .contact-link > svg { margin-left: auto; color: #94a3b8; }
+    .contact-placeholder { background: #f8fafc; border-style: dashed; }
+    .contact-placeholder .contact-link-icon { color: #94a3b8; background: #eef2f7; }
+    .contact-placeholder .coming-soon { margin-left: auto; padding: 5px 8px; color: #64748b; background: #e9eef5; border-radius: 999px; font-size: .68rem; font-weight: 800; white-space: nowrap; }
+
+    .site-footer { padding: 34px 0 28px; border-top: 1px solid var(--line); background: #fbfdff; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding-bottom: 23px; }
+    .footer-tagline { color: #64748b; font-size: .82rem; line-height: 1.8; text-align: right; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 20px; border-top: 1px solid #e9eef5; }
+    .disclaimer { max-width: 820px; margin: 0; color: #94a3b8; font-size: .72rem; line-height: 1.9; }
+    .copyright { flex-shrink: 0; color: #94a3b8; font-size: .72rem; white-space: nowrap; }
+    .back-to-top { position: fixed; z-index: 30; right: 22px; bottom: 22px; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(203,213,225,.9); border-radius: 15px; color: #475569; background: rgba(255,255,255,.9); box-shadow: 0 7px 20px rgba(15,23,42,.08); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* On-scroll reveal. Content remains visible without JavaScript. */
+    .js-enabled .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
+    .js-enabled .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .js-enabled .reveal-delay-1 { transition-delay: .08s; }
+    .js-enabled .reveal-delay-2 { transition-delay: .16s; }
+    .js-enabled .reveal-delay-3 { transition-delay: .24s; }
+
+    @media (max-width: 1080px) {
+      .hero-layout { grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr); gap: 22px; }
+      .hero-visual { transform: scale(.94); transform-origin: center; }
+      .service-grid, .why-grid, .solution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-card { min-height: 270px; }
+      .nav-links { gap: 17px; }
+      .nav-links a { font-size: .84rem; }
+    }
+    @media (max-width: 820px) {
+      .container { width: min(100% - 40px, 680px); }
+      .section { padding: 82px 0; }
+      .site-header { height: 74px; }
+      .nav-inner { gap: 12px; }
+      .menu-toggle { display: grid; margin-left: auto; }
+      .nav-links { position: absolute; top: 73px; inset-inline: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 11px 20px 20px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.98); box-shadow: 0 18px 28px rgba(15,23,42,.06); }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 13px 7px; font-size: .96rem; border-bottom: 1px solid #f1f5f9; }
+      .nav-cta { display: none; }
+      .hero { min-height: auto; padding: 128px 0 66px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 12px; }
+      .hero-copy { max-width: 700px; }
+      .hero h1 { max-width: 700px; min-height: auto; font-size: clamp(2.6rem, 8vw, 4rem); }
+      .hero-visual { min-height: 440px; width: min(100%, 580px); margin: 0 auto; transform: none; }
+      .visual-card.card-contract { left: 3%; }
+      .visual-card.card-clock { right: 1%; }
+      .visual-card.card-salary { left: 0; }
+      .visual-card.card-check { right: 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-visual { min-height: auto; padding: 10px 0 25px; }
+      .about-panel { width: min(100%, 500px); }
+      .floating-note { right: max(0px, calc((100% - 500px)/2 - 10px)); }
+      .knowledge-wrap { grid-template-columns: 1fr; gap: 30px; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .knowledge-intro { position: static; }
+      .knowledge-intro p { max-width: 660px; }
+      .knowledge-note { max-width: 650px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 34px; }
+      .footer-top { align-items: flex-start; flex-direction: column; }
+      .footer-tagline { text-align: left; }
+      .footer-bottom { flex-direction: column; gap: 11px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: calc(100% - 34px); }
+      .section { padding: 70px 0; }
+      .section-heading { margin-bottom: 36px; text-align: left; }
+      .section-heading .eyebrow { margin-bottom: 0; }
+      .section-heading h2 { font-size: clamp(1.9rem, 8vw, 2.45rem); }
+      .section-heading p { font-size: .94rem; }
+      .brand-mark { width: 39px; height: 39px; border-radius: 13px; }
+      .brand-name { font-size: 1.05rem; }
+      .hero { padding-top: 116px; }
+      .hero::before { background-size: 34px 34px; }
+      .hero-badge { font-size: .72rem; }
+      .hero h1 { margin-top: 22px; font-size: clamp(2.35rem, 10.3vw, 3.3rem); letter-spacing: -.06em; line-height: 1.28; }
+      .hero-subtitle { font-size: 1.06rem; line-height: 1.75; }
+      .hero-description { font-size: .92rem; line-height: 1.9; }
+      .hero-actions { align-items: stretch; gap: 10px; }
+      .hero-actions .cta-wrap { flex: 1 1 100%; }
+      .hero-actions .btn-primary, .hero-actions .btn-secondary { width: 100%; }
+      .hero-actions .btn-secondary { flex: 1 1 100%; }
+      .cta-status { display: none; }
+      .hero-microcopy { gap: 11px 15px; font-size: .73rem; margin-top: 20px; }
+      .hero-visual { min-height: 365px; margin-top: 7px; width: 100%; }
+      .visual-orb { width: 270px; height: 270px; }
+      .visual-core { width: 155px; height: 155px; box-shadow: inset 0 0 30px rgba(255,255,255,.9), 0 20px 45px rgba(59,130,246,.14), 0 0 0 12px rgba(219,234,254,.25), 0 0 0 24px rgba(221,214,254,.12); }
+      .core-inner { width: 88px; height: 88px; border-radius: 27px; }
+      .core-inner svg { width: 44px; height: 44px; }
+      .core-caption { bottom: 20px; font-size: .56rem; }
+      .visual-card { min-width: 150px; gap: 8px; padding: 10px 11px; border-radius: 14px; }
+      .visual-card .card-icon { width: 32px; height: 32px; flex-basis: 32px; border-radius: 10px; }
+      .visual-card .card-icon svg { width: 17px; height: 17px; }
+      .visual-card strong { font-size: .74rem; }
+      .visual-card small { font-size: .61rem; }
+      .visual-card.card-contract { top: 45px; left: -2px; }
+      .visual-card.card-clock { top: 75px; right: -2px; }
+      .visual-card.card-salary { bottom: 52px; left: -2px; }
+      .visual-card.card-check { bottom: 30px; right: -2px; }
+      .tiny-label { top: 7px; font-size: .56rem; }
+      .service-grid, .why-grid { grid-template-columns: 1fr; gap: 13px; }
+      .service-card { min-height: auto; padding: 24px; }
+      .service-icon { margin-bottom: 19px; }
+      .service-card h3 { font-size: 1.02rem; }
+      .services-intro { margin: -15px auto 30px; font-size: .9rem; text-align: left; }
+      .knowledge-card { grid-template-columns: 49px minmax(0,1fr) 28px; gap: 12px; padding: 16px 13px; border-radius: 17px; }
+      .knowledge-symbol { width: 48px; height: 48px; border-radius: 14px; }
+      .knowledge-symbol svg { width: 22px; height: 22px; }
+      .knowledge-card h3 { font-size: .9rem; }
+      .knowledge-card p { font-size: .77rem; }
+      .knowledge-meta { font-size: .65rem; }
+      .knowledge-arrow { width: 29px; height: 29px; }
+      .knowledge-arrow svg { width: 15px; height: 15px; }
+      .why-item { display: grid; grid-template-columns: 48px 1fr; column-gap: 15px; padding: 22px; }
+      .why-icon { grid-row: span 2; width: 47px; height: 47px; margin: 0; }
+      .why-num { grid-column: 2; margin-bottom: 5px; }
+      .why-item h3 { grid-column: 2; margin-bottom: 7px; }
+      .why-item p { grid-column: 2; }
+      .consultation-section { padding: 65px 0 72px; }
+      .consultation-card { padding: 37px 22px; border-radius: 26px; text-align: left; }
+      .consultation-card h2 { font-size: 2rem; }
+      .consultation-card p { font-size: .91rem; }
+      .consultation-actions { align-items: stretch; }
+      .consultation-actions .btn-primary, .consultation-actions .btn-secondary { width: 100%; }
+      .consultation-footnote { text-align: left; }
+      .about-copy h2, .contact-copy h2 { font-size: 2.1rem; }
+      .about-copy p { font-size: .92rem; }
+      .about-panel { padding: 25px 22px; border-radius: 24px; }
+      .about-panel-top { margin-bottom: 28px; }
+      .big-three { font-size: 6rem; }
+      .floating-note { right: -5px; bottom: 1%; padding: 11px 12px; font-size: .72rem; }
+      .contact-link, .contact-placeholder { padding: 15px; gap: 12px; }
+      .contact-link-icon { width: 42px; height: 42px; flex-basis: 42px; }
+      .contact-link strong, .contact-placeholder strong { font-size: .84rem; }
+      .contact-placeholder .coming-soon { font-size: .6rem; padding: 4px 6px; }
+      .footer-top { gap: 13px; }
+      .footer-bottom { gap: 13px; }
+      .disclaimer { font-size: .68rem; }
+      .copyright { white-space: normal; }
+      .back-to-top { right: 14px; bottom: 14px; width: 41px; height: 41px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js-enabled .reveal { opacity: 1; transform: none; }
+      .typing-cursor { animation: none; }
+    }
+
+    /* Brand palette: forest green, sage, mist, ivory, oat and terracotta. */
+    body { background: var(--ivory); }
+    .section-soft { background: linear-gradient(180deg, var(--ivory), var(--mist)); }
+    .site-header, .site-header.is-scrolled { border-color: rgba(230,221,206,.8); background: rgba(246,243,234,.92); }
+    .site-header.is-scrolled { box-shadow: 0 8px 30px rgba(38,55,46,.08); }
+    .brand-mark { background: linear-gradient(135deg, var(--forest), var(--sage)); box-shadow: 0 8px 20px rgba(53,87,71,.2); }
+    .brand-name small, .visual-card small, .contact-link small, .contact-placeholder small, .disclaimer, .copyright { color: var(--forest); opacity: .72; }
+    .nav-links a { color: var(--deep-forest); }
+    .nav-cta, .btn-primary { background: linear-gradient(105deg, var(--forest), var(--deep-forest)); box-shadow: 0 10px 24px rgba(53,87,71,.22); }
+    .nav-cta:hover, .btn-primary:hover { box-shadow: 0 14px 30px rgba(53,87,71,.25), 0 0 0 4px rgba(158,175,155,.2); }
+    .btn-secondary { border-color: var(--sage); color: var(--forest); background: rgba(246,243,234,.9); }
+    .btn-secondary:hover { border-color: var(--forest); box-shadow: 0 10px 25px rgba(53,87,71,.1); background: var(--ivory); }
+    .cta-status { color: var(--forest); }
+    .cta-status::before { background: var(--sage); box-shadow: 0 0 0 3px rgba(158,175,155,.24); }
+    button:focus-visible, a:focus-visible { outline-color: rgba(53,87,71,.55); }
+    .gradient-text, .hero h1 .accent-line { color: var(--forest); background-image: linear-gradient(105deg, var(--forest), var(--terracotta)); }
+    .typing-cursor { background: var(--terracotta); }
+    .hero { background: radial-gradient(ellipse at 78% 28%, rgba(220,229,216,.8), transparent 34%), radial-gradient(ellipse at 95% 74%, rgba(230,221,206,.72), transparent 30%), linear-gradient(180deg, var(--ivory), #fffdf8); }
+    .hero::before { background-image: linear-gradient(rgba(158,175,155,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(158,175,155,.18) 1px, transparent 1px); }
+    .hero-badge { border-color: var(--mist); color: var(--forest); box-shadow: 0 5px 18px rgba(53,87,71,.08); }
+    .hero-badge .spark { background: linear-gradient(135deg, var(--forest), var(--terracotta)); }
+    .hero-subtitle, .about-copy p strong, .about-signoff { color: var(--deep-forest); }
+    .hero-microcopy, .core-caption, .step-row span:last-child, .solution-lead { color: var(--forest); }
+    .hero-microcopy svg { color: var(--sage); }
+    .visual-orb { background: radial-gradient(circle at 40% 35%, rgba(246,243,234,.98) 0%, rgba(220,229,216,.86) 24%, rgba(158,175,155,.3) 50%, rgba(246,243,234,0) 74%); }
+    .visual-core { border-color: rgba(158,175,155,.65); background: radial-gradient(circle at 32% 25%, #fffdf8 0%, rgba(220,229,216,.9) 45%, rgba(230,221,206,.75) 100%); box-shadow: inset 0 0 38px rgba(255,255,255,.9), 0 26px 65px rgba(53,87,71,.14), 0 0 0 17px rgba(220,229,216,.36), 0 0 0 34px rgba(230,221,206,.25); }
+    .core-inner { background: linear-gradient(145deg, var(--forest), var(--deep-forest)); box-shadow: 0 18px 36px rgba(38,55,46,.22), inset 0 1px 0 rgba(255,255,255,.45); }
+    .visual-card { border-color: rgba(230,221,206,.9); background: rgba(246,243,234,.9); box-shadow: 0 16px 36px rgba(38,55,46,.09); }
+    .visual-card .card-icon, .signoff-mark, .step-number, .knowledge-symbol, .why-icon, .contact-link-icon { color: var(--forest); background: var(--mist); }
+    .visual-dot { background: linear-gradient(135deg, var(--forest), var(--sage)); box-shadow: 0 0 0 6px rgba(158,175,155,.2); }
+    .visual-dot.d2 { background: var(--terracotta); }
+    .tiny-label { color: var(--forest); }
+    .about-panel { border-color: var(--oat); background: linear-gradient(145deg, rgba(255,253,248,.96), rgba(220,229,216,.72)); }
+    .about-panel::before { background: rgba(158,175,155,.4); }
+    .live-pill { color: var(--forest); background: var(--mist); }
+    .live-pill::before { background: var(--sage); }
+    .big-three { background-image: linear-gradient(145deg, var(--forest), var(--terracotta)); }
+    .step-row { border-color: rgba(230,221,206,.9); background: rgba(246,243,234,.8); }
+    .floating-note { border-color: var(--oat); background: rgba(246,243,234,.94); }
+    .floating-note svg { color: var(--terracotta); }
+    .service-card, .solution-card, .why-item, .knowledge-card, .contact-link, .contact-placeholder { border-color: var(--oat); background: rgba(255,253,248,.92); }
+    .service-card:hover, .solution-card:hover, .knowledge-card:hover, .contact-link:hover { border-color: var(--sage); }
+    .service-card:hover, .solution-card:hover { box-shadow: 0 22px 42px rgba(53,87,71,.12); }
+    .service-card::after, .solution-card::after { background: var(--card-glow, rgba(158,175,155,.28)); }
+    .service-icon, .solution-icon { color: var(--icon-color, var(--forest)); background: var(--icon-bg, var(--mist)); }
+    .card-link, .solution-link, .knowledge-meta { color: var(--forest); }
+    .knowledge-note { border-color: var(--oat); color: var(--deep-forest); background: var(--mist); }
+    .knowledge-note svg { color: var(--forest); }
+    .knowledge-card:nth-child(2) .knowledge-symbol { color: var(--forest); background: var(--oat); }
+    .knowledge-card:nth-child(3) .knowledge-symbol { color: var(--forest); background: var(--mist); }
+    .knowledge-card:nth-child(4) .knowledge-symbol { color: var(--terracotta); background: var(--oat); }
+    .knowledge-card:nth-child(5) .knowledge-symbol { color: var(--forest); background: var(--mist); }
+    .knowledge-card:hover { box-shadow: 0 12px 30px rgba(53,87,71,.09); }
+    .knowledge-card:hover .knowledge-arrow { border-color: var(--forest); background: var(--forest); }
+    .why-num { color: var(--sage); }
+    .why-item:hover { box-shadow: 0 18px 35px rgba(38,55,46,.09); }
+    .consultation-card { border-color: rgba(158,175,155,.6); background: radial-gradient(circle at 12% 10%, rgba(255,253,248,.95), transparent 25%), radial-gradient(circle at 92% 85%, rgba(158,175,155,.3), transparent 30%), linear-gradient(120deg, var(--mist), var(--ivory) 56%, var(--oat)); box-shadow: 0 26px 70px rgba(53,87,71,.1); }
+    .consultation-card::before, .consultation-card::after { border-color: rgba(158,175,155,.4); }
+    .consultation-kicker { border-color: var(--sage); color: var(--forest); background: rgba(246,243,234,.8); }
+    .consultation-card p { color: var(--deep-forest); }
+    .consultation-footnote { color: var(--forest) !important; }
+    .contact-link:hover { box-shadow: 0 13px 28px rgba(53,87,71,.1); }
+    .contact-link > svg { color: var(--sage); }
+    .contact-placeholder { background: var(--ivory); }
+    .contact-placeholder .contact-link-icon { color: var(--forest); background: var(--mist); }
+    .contact-placeholder .coming-soon { color: var(--deep-forest); background: var(--oat); }
+    .site-footer { border-color: var(--oat); background: var(--mist); }
+    .footer-bottom { border-color: var(--oat); }
+    .back-to-top { border-color: var(--oat); color: var(--forest); background: rgba(246,243,234,.95); box-shadow: 0 7px 20px rgba(38,55,46,.1); }
+    .menu-toggle { background: var(--ivory); }
+  </style>
+</head>
+<body>
+  <!--
+    網站架構｜勞資數到三
+    ├── 01. 首頁 Hero：品牌定位、打字機標語、CTA、AI 視覺主圖
+    ├── 02. 關於我 About：品牌故事、創辦理念、3 分鐘學習概念
+    ├── 03. 服務項目 Services：AI 知識應用、勞資知識、管理表單、勞檢準備
+    ├── 04. 勞資知識 Knowledge：五大勞資知識主題卡片
+    ├── 05. 品牌特色 Why Us：簡單易懂、貼近實務、AI 輔助、預防優先
+    ├── 06. 預約諮詢 Consultation：導向 Google 預約頁
+    ├── 07. 聯絡我 Contact：預約入口、Instagram 待補位置
+    └── Footer：品牌標語、法律資訊免責聲明
+  -->
+  <header class="site-header" id="site-header">
+    <nav class="container nav-inner" aria-label="主要導覽">
+      <a class="brand" href="#home" aria-label="勞資數到三，回到首頁">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 7.2h12M6 12h8M6 16.8h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="16.8" r="2.2" fill="currentColor" opacity=".9"/></svg>
+        </span>
+        <span class="brand-name">勞資數到三<small>LABOR × AI KNOWLEDGE</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">首頁</a>
+        <a href="#about">關於我</a>
+        <a href="#services">服務項目</a>
+        <a href="#knowledge">勞資知識</a>
+        <a href="#contact">聯絡我</a>
+      </div>
+      <a class="nav-cta" href="https://calendar.app.google/ShevyF2N2Dx3Zcir8" target="_blank" rel="noopener noreferrer">預約諮詢 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="開啟導覽選單" aria-controls="nav-links" aria-expanded="false">
+        <svg class="menu-open-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="menu-close-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 01 / Hero -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="hero-badge"><span class="spark" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m12 2 1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2Z" fill="currentColor"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z" fill="currentColor"/></svg></span>為小老闆設計的勞資知識品牌</div>
+          <h1 id="hero-title" aria-label="勞基法不踩雷，創業經營更安心"><span class="accent-line" id="typewriter-text">勞基法不踩雷，創業經營更安心。</span><span class="typing-cursor" id="typing-cursor" aria-hidden="true"></span></h1>
+          <p class="hero-subtitle">把複雜的勞基法，變成小老闆聽得懂、用得上的經營知識。</p>
+          <p class="hero-description">結合 AI 智慧應用與台灣勞動法規知識，從勞動契約、薪資計算到出勤管理，陪你建立正確的勞資觀念，讓創業經營更有方向。</p>
+          <div class="hero-actions">
+            <div class="cta-wrap">
+              <a class="btn-primary" href="https://calendar.app.google/ShevyF2N2Dx3Zcir8" target="_blank" rel="noopener noreferrer">預約諮詢 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <div class="cta-status" role="status">Status: Ready to Connect</div>
+            </div>
+            <a class="btn-secondary" href="#services">探索服務 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m-7-7 7 7 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="hero-microcopy" aria-label="品牌特色">
+            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>3 分鐘掌握一個觀念</span>
+            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>生活化實務解析</span>
+            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI 輔助知識整理</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" role="img" aria-label="以數位核心、節點連線與勞動契約、工時管理、薪資計算及勞檢準備資訊卡片構成的 AI 科技視覺">
+          <div class="tiny-label">SMART LABOR KNOWLEDGE</div>
+          <div class="visual-orb"></div>
+          <svg class="network-lines" viewBox="0 0 600 540" fill="none" aria-hidden="true">
+            <defs><linearGradient id="lineGrad" x1="70" y1="50" x2="530" y2="480" gradientUnits="userSpaceOnUse"><stop stop-color="#60A5FA" stop-opacity=".2"/><stop offset=".5" stop-color="#818CF8" stop-opacity=".85"/><stop offset="1" stop-color="#A78BFA" stop-opacity=".15"/></linearGradient></defs>
+            <path d="M70 130C160 130 152 210 235 210M365 105C430 105 433 165 520 165M55 370C140 370 163 305 224 305M382 360C454 360 450 425 535 425M270 44C270 110 300 125 300 170M296 360C296 413 310 450 310 490" stroke="url(#lineGrad)" stroke-width="1.4"/>
+            <path d="M80 235C155 235 160 280 215 280M390 245C455 245 468 280 530 280M180 80C180 130 200 155 234 165M405 470C405 420 390 398 365 380" stroke="#93C5FD" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="4 8"/>
+            <circle cx="70" cy="130" r="4" fill="#60A5FA"/><circle cx="520" cy="165" r="4" fill="#A78BFA"/><circle cx="55" cy="370" r="4" fill="#93C5FD"/><circle cx="535" cy="425" r="4" fill="#6EE7B7"/><circle cx="270" cy="44" r="4" fill="#818CF8"/><circle cx="310" cy="490" r="4" fill="#A78BFA"/>
+          </svg>
+          <span class="visual-dot d1"></span><span class="visual-dot d2"></span><span class="visual-dot d3"></span>
+          <div class="visual-core">
+            <div class="core-inner"><svg width="58" height="58" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 7 37.5 24.5 55 30 37.5 35.5 32 53 26.5 35.5 9 30 26.5 24.5 32 7Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="m49 43 2.4 7.6L59 53l-7.6 2.4L49 63l-2.4-7.6L39 53l7.6-2.4L49 43Z" fill="#BFF7E5"/><circle cx="32" cy="30" r="4" fill="white"/></svg></div>
+            <span class="core-caption">AI × LABOR</span>
+          </div>
+          <div class="visual-card card-contract"><span class="card-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4v4h4M8.5 12h7M8.5 15.5h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>勞動契約</strong><small>Contract essentials</small></span></div>
+          <div class="visual-card card-clock"><span class="card-icon" style="color:#355747;background:#E6DDCE"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>工時管理</strong><small>Time & attendance</small></span></div>
+          <div class="visual-card card-salary"><span class="card-icon" style="color:#355747;background:#DCE5D8"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="6" width="16" height="13" rx="2.3" stroke="currentColor" stroke-width="1.6"/><path d="M8 10h8M8 14h2M14 14h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 3.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><strong>薪資計算</strong><small>Payroll clarity</small></span></div>
+          <div class="visual-card card-check"><span class="card-icon" style="color:#C87858;background:#E6DDCE"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 4h8M9 2.8h6a1 1 0 0 1 1 1V6H8V3.8a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="5" width="14" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m8 13 2.3 2.3L16 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>勞檢準備</strong><small>Ready with clarity</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <span class="eyebrow">ABOUT THE BRAND</span>
+          <h2 id="about-title">陪小老闆走過<br><span class="gradient-text">從不確定到更安心</span></h2>
+          <p>嗨！我是「勞資數到三」的創辦人。身為一位實際經營事業的創業者，我深刻了解小老闆的辛苦。從開發客戶、管理員工，到處理薪資、出勤、請假與各種突發狀況，每天都有忙不完的事情。</p>
+          <p>經營公司已經不容易，偏偏勞基法條文繁雜。許多小老闆不是不願意遵守，而是不知道該從哪裡開始。因此，我創立了「勞資數到三」，希望把艱澀的勞動法規，轉化成簡單易懂、貼近實務的知識。</p>
+          <p>我們特別關注五人以下的小型企業、美業工作室、自營創業者及第一次聘請員工的老闆。從勞動契約、工時紀錄、薪資計算，到勞動檢查與勞資爭議預防，用生活化的案例陪你一步步建立正確觀念。</p>
+          <p><strong>懂勞基法，不是為了對抗員工，而是讓老闆與員工都能受到保障。</strong></p>
+          <div class="about-signoff"><span class="signoff-mark"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span>勞資數到三，勞基法不踩雷！</span></div>
+        </div>
+        <div class="about-visual reveal reveal-delay-1" aria-label="品牌理念視覺：三分鐘理解、整理重點、開始實踐">
+          <div class="about-panel">
+            <div class="about-panel-top"><small>OUR LEARNING PHILOSOPHY</small><span class="live-pill">CLEAR & PRACTICAL</span></div>
+            <div class="big-three">3<span style="font-size:.35em;letter-spacing:-.03em"> min</span></div>
+            <div class="three-caption">讓知識簡單一點，讓經營安心一點。</div>
+            <div class="three-note">不需要一次讀完厚厚的法條。從一個重要觀念開始，逐步建立更清楚的勞資管理習慣。</div>
+            <div class="step-list">
+              <div class="step-row"><span class="step-number">01</span><span>理解問題：先掌握情境與重點</span></div>
+              <div class="step-row"><span class="step-number">02</span><span>整理資訊：用淺白方式拆解觀念</span></div>
+              <div class="step-row"><span class="step-number">03</span><span>開始實踐：建立日常管理方向</span></div>
+            </div>
+          </div>
+          <div class="floating-note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>把複雜，整理成清楚</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / Services -->
+    <section class="section section-soft" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">SERVICES & SOLUTIONS</span>
+          <h2 id="services-title">AI 智慧勞資<span class="gradient-text">解決方案</span></h2>
+          <p>用 AI 賦能小老闆，讓勞資管理更簡單，企業經營更安心。</p>
+        </div>
+        <p class="services-intro reveal">「勞資數到三」聚焦自營工作者、微型企業與美業工作室的日常管理需求，結合 AI 輔助知識整理與台灣勞動法規知識，將複雜資訊轉化為更容易理解的學習資源與管理方向。</p>
+        <div class="service-grid">
+          <article class="service-card reveal" id="service-ai" style="--card-glow:rgba(53,87,71,.18);--icon-color:#355747;--icon-bg:#DCE5D8">
+            <span class="service-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 14.2 9.8 21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m19 2 .8 2.2L22 5l-2.2.8L19 8l-.8-2.2L16 5l2.2-.8L19 2Z" fill="currentColor"/></svg></span>
+            <h3>AI 勞資知識應用</h3><p>運用 AI 輔助整理勞資問題、理解法規資訊與分析常見工作情境，讓知識查找更有方向。</p>
+            <a class="card-link" href="#consultation">聊聊你的需求 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </article>
+          <article class="service-card reveal reveal-delay-1" id="service-knowledge" style="--card-glow:rgba(158,175,155,.25);--icon-color:#355747;--icon-bg:#E6DDCE">
+            <span class="service-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 6h12M8 10h8M8 13.5h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>勞資管理知識</h3><p>從勞動契約、工時、加班費、薪資到請假等常見議題，建立日常管理需要的基本觀念。</p>
+            <a class="card-link" href="#knowledge">探索知識主題 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </article>
+          <article class="service-card reveal reveal-delay-2" id="service-forms" style="--card-glow:rgba(200,120,88,.15);--icon-color:#C87858;--icon-bg:#E6DDCE">
+            <span class="service-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m8 9 1.5 1.5L12 8M14 10h2M8 15h2M13 15h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>管理表單與制度建立</h3><p>介紹適合小型企業參考的勞資管理表單、紀錄方式與制度建立方向，協助整理管理流程。</p>
+            <a class="card-link" href="#consultation">討論管理方向 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </article>
+          <article class="service-card reveal reveal-delay-3" id="service-risk" style="--card-glow:rgba(158,175,155,.2);--icon-color:#355747;--icon-bg:#DCE5D8">
+            <span class="service-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 21 20H3L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9v5M12 17.2v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <h3>勞檢準備與風險預防</h3><p>認識常見勞動檢查議題、資料準備方向與日常風險辨識觀念，從平時累積管理習慣。</p>
+            <a class="card-link" href="#consultation">了解預防方向 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / Knowledge -->
+    <section class="section" id="knowledge" aria-labelledby="knowledge-title">
+      <div class="container knowledge-wrap">
+        <div class="knowledge-intro reveal">
+          <span class="eyebrow">KNOWLEDGE IN 3 MINUTES</span>
+          <h2 id="knowledge-title">3 分鐘學會一個<span class="gradient-text">勞資觀念</span></h2>
+          <p>不用一次讀完厚厚的法條，從每天會遇到的問題開始。先釐清情境、掌握重點，再一步步建立適合自己的管理習慣。</p>
+          <div class="knowledge-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5M12 7.5v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>以下為知識主題導覽，並非已發布文章。點選後可前往相關服務方向；文章內容與網址可在後續更新。</span></div>
+        </div>
+        <div class="knowledge-list">
+          <a class="knowledge-card reveal" href="#service-forms">
+            <span class="knowledge-symbol"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3.5h7l4 4V20H7a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4v4h4M8.5 12h7M8.5 15.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span><small class="knowledge-meta">01 / 勞動契約</small><h3>聘僱員工前，應該先了解什麼？</h3><p>從工作內容、約定條件與相關紀錄開始，建立清楚的溝通基礎。</p></span>
+            <span class="knowledge-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a class="knowledge-card reveal reveal-delay-1" href="#service-knowledge">
+            <span class="knowledge-symbol"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span><small class="knowledge-meta">02 / 工時與出勤</small><h3>如何建立清楚的工時紀錄？</h3><p>了解出勤資料的整理方向，讓日常管理有跡可循。</p></span>
+            <span class="knowledge-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a class="knowledge-card reveal reveal-delay-2" href="#service-knowledge">
+            <span class="knowledge-symbol"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="6" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 10h9M7.5 14h2M14.5 14h2M8 3.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span><small class="knowledge-meta">03 / 薪資與加班費</small><h3>哪些薪資問題需要特別留意？</h3><p>先釐清薪資項目、工時資訊與計算依據，再核對個別情況。</p></span>
+            <span class="knowledge-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a class="knowledge-card reveal" href="#service-risk">
+            <span class="knowledge-symbol"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 19 6v5.2c0 4.3-2.9 7.3-7 9.3-4.1-2-7-5-7-9.3V6l7-2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><small class="knowledge-meta">04 / 勞健保與相關制度</small><h3>聘僱員工時，應了解哪些基本規範？</h3><p>盤點聘僱過程中的制度與資料，並依最新規範確認適用情況。</p></span>
+            <span class="knowledge-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a class="knowledge-card reveal reveal-delay-1" href="#service-risk">
+            <span class="knowledge-symbol"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 1 2.4 5.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4 5v7h7M12 8v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><small class="knowledge-meta">05 / 勞資爭議預防</small><h3>如何透過日常管理減少誤會？</h3><p>讓重要約定、出勤與溝通有清楚紀錄，從平時建立管理共識。</p></span>
+            <span class="knowledge-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / Why us -->
+    <section class="section section-soft" id="why-us" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">WHY LABOR × 3</span>
+          <h2 id="why-title">讓勞基法，不再成為<span class="gradient-text">創業路上的難題</span></h2>
+          <p>不說難懂的術語，從真正會遇到的問題出發，建立可持續的學習與管理習慣。</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-item reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5h14M5 12h9M5 17.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="17.5" r="2" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="why-num">01 / CLEAR</div><h3>簡單易懂</h3><p>把複雜法規轉化為容易理解的日常語言，先抓到重要觀念。</p></article>
+          <article class="why-item reveal reveal-delay-1"><div class="why-icon" style="color:#355747;background:#DCE5D8"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-3.6 7-10V5l-7-2-7 2v6c0 6.4 7 10 7 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="why-num">02 / PRACTICAL</div><h3>貼近實務</h3><p>聚焦小老闆真正會遇到的管理情境，讓知識能回到日常工作裡。</p></article>
+          <article class="why-item reveal reveal-delay-2"><div class="why-icon" style="color:#355747;background:#E6DDCE"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 14.2 9.8 21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div><div class="why-num">03 / AI ASSISTED</div><h3>AI 輔助</h3><p>用科技協助資訊整理與知識學習，但重要判斷仍需依規範與個別情況確認。</p></article>
+          <article class="why-item reveal reveal-delay-3"><div class="why-icon" style="color:#C87858;background:#E6DDCE"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="why-num">04 / PREVENTION</div><h3>預防優先</h3><p>從日常觀念與紀錄建立著手，協助辨識需要留意的管理環節。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / Core products and technical solutions -->
+    <section class="section section-soft" id="solutions" aria-labelledby="solutions-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">CORE PRODUCTS &amp; SOLUTIONS</span>
+          <h2 id="solutions-title">核心產品與<span class="gradient-text">技術解決方案</span></h2>
+          <p>把勞資管理拆成可執行、可檢核的工具，協助企業從勞檢準備、招募任用到離職管理，建立更完整的法遵流程。</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card reveal" style="--solution-glow:rgba(53,87,71,.18);--solution-color:#355747;--solution-bg:#DCE5D8">
+            <span class="solution-icon" aria-hidden="true"><i class="fa-solid fa-toolbox"></i></span>
+            <h3>1. 勞檢工具包</h3>
+            <p class="solution-lead">核心：資料備查、法遵自查、缺失改善</p>
+            <a class="solution-link" href="#consultation">預約了解工具包 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="solution-card reveal reveal-delay-1" style="--solution-glow:rgba(158,175,155,.25);--solution-color:#355747;--solution-bg:#E6DDCE">
+            <span class="solution-icon" aria-hidden="true"><i class="fa-solid fa-user-plus"></i></span>
+            <h3>2. 招募與任用</h3>
+            <p class="solution-lead">找對人、合法聘用</p>
+            <a class="solution-link" href="#consultation">預約了解任用方案 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="solution-card reveal reveal-delay-2" style="--solution-glow:rgba(200,120,88,.16);--solution-color:#C87858;--solution-bg:#E6DDCE">
+            <span class="solution-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+            <h3>3. 法遵與離職管理</h3>
+            <p class="solution-lead">降低勞資爭議風險</p>
+            <a class="solution-link" href="#consultation">預約了解管理方案 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 / Contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">GET IN TOUCH</span>
+          <h2 id="contact-title">和我保持聯繫，<br><span class="gradient-text">一起讓管理更安心。</span></h2>
+          <p>無論你想先了解勞資管理工具、提出企業需求，或直接預約諮詢，都可以透過下方入口與我聯繫。</p>
+        </div>
+        <div class="contact-links reveal reveal-delay-1">
+          <a class="contact-link" href="https://line.me/ti/p/hYENkHv4ZV" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon" style="color:#355747;background:#DCE5D8"><i class="fa-brands fa-line fa-lg" aria-hidden="true"></i></span>
+            <span><strong>LINE 聯絡我</strong><small>加入 LINE，直接提出你的需求</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <a class="contact-link" href="https://www.instagram.com/itslablaw?dlrf=NXk3ZGU5ZWc0MGtv&utm_source=qr" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon" style="color:#355747;background:#E6DDCE"><i class="fa-brands fa-instagram fa-lg" aria-hidden="true"></i></span>
+            <span><strong>Instagram / 社群專頁</strong><small>追蹤最新內容與服務資訊</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <a class="contact-link" href="https://forms.gle/2wbMhyuHD1227oVw9" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon" style="color:#C87858;background:#E6DDCE"><i class="fa-solid fa-clipboard-list fa-lg" aria-hidden="true"></i></span>
+            <span><strong>填寫需求表單</strong><small>留下需求，讓我更快了解你的情況</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 / Consultation -->
+    <section class="consultation-section" id="consultation" aria-labelledby="consultation-title">
+      <div class="container">
+        <div class="consultation-card reveal">
+          <div class="consultation-content">
+            <span class="consultation-kicker"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 14.2 9.8 21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>LET'S TALK</span>
+            <h2 id="consultation-title">別讓不確定的勞資問題，<br><span class="gradient-text">成為經營的壓力。</span></h2>
+            <p>從釐清問題開始，為你的企業建立更清楚的勞資管理方向。無論你是第一次聘請員工，還是想重新檢視現有的勞資管理方式，都可以先預約交流，了解適合自己的學習與管理方向。</p>
+            <div class="consultation-actions">
+              <a class="btn-primary" href="https://calendar.app.google/ShevyF2N2Dx3Zcir8" target="_blank" rel="noopener noreferrer">立即預約諮詢 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="btn-secondary" href="#knowledge">先看看知識主題</a>
+            </div>
+            <p class="consultation-footnote">點擊後將在新分頁開啟 Google 預約頁面；實際預約以預約頁面操作結果為準。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legacy contact block retained for reference. -->
+    <section class="section" id="contact-legacy" aria-labelledby="contact-title" hidden>
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">GET IN TOUCH</span>
+          <h2 id="contact-title">讓我們一起，<br><span class="gradient-text">讓經營更安心。</span></h2>
+          <p>從理解勞基法開始，讓每一次聘僱、每一筆薪資、每一份紀錄，都有更清楚的方向。選擇適合你的下一步，從一場交流開始。</p>
+        </div>
+        <div class="contact-links reveal reveal-delay-1">
+          <a class="contact-link" href="https://calendar.app.google/ShevyF2N2Dx3Zcir8" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 3v4M16.5 3v4M4 9.5h16M8 13h3M8 16.5h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span><strong>預約諮詢</strong><small>預約時間，聊聊你的勞資管理需求</small></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <!-- TODO：取得正式 Instagram 個人檔案網址後，將此提示替換為可點擊的 Instagram 連結。 -->
+          <div class="contact-placeholder" aria-label="Instagram 連結尚待設定">
+            <span class="contact-link-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.7" r="1" fill="currentColor"/></svg></span>
+            <span><strong>Instagram 品牌入口</strong><small>補上品牌帳號網址後即可啟用</small></span>
+            <span class="coming-soon">待設定</span>
+          </div>
+          <div class="contact-placeholder" aria-label="其他聯絡資訊尚待設定">
+            <span class="contact-link-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5h16v11H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m4.5 7 7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <span><strong>其他聯絡方式</strong><small>電子郵件或電話資訊可於此處補上</small></span>
+            <span class="coming-soon">待設定</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="#home" aria-label="勞資數到三，回到首頁">
+          <span class="brand-mark" aria-hidden="true"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M6 7.2h12M6 12h8M6 16.8h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="16.8" r="2.2" fill="currentColor" opacity=".9"/></svg></span>
+          <span class="brand-name">勞資數到三<small>LABOR × AI KNOWLEDGE</small></span>
+        </a>
+        <div class="footer-tagline">勞基法不踩雷，創業經營更安心。<br>讓我們用 3 分鐘學會一個重要觀念。</div>
+      </div>
+      <div class="footer-bottom">
+        <p class="disclaimer">本站內容主要用於勞資知識教育與一般資訊參考，不應取代針對個別案件的專業法律意見。實際適用規範請依最新法令及具體情況確認。AI 僅作為資訊整理與學習輔助，不保證法律判斷正確。</p>
+        <span class="copyright">© <span id="current-year">2026</span> 勞資數到三</span>
+      </div>
+    </div>
+  </footer>
+  <a class="back-to-top" id="back-to-top" href="#home" aria-label="回到頁面頂端"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 14 6-6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const header = document.getElementById('site-header');
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const openIcon = menuToggle?.querySelector('.menu-open-icon');
+      const closeIcon = menuToggle?.querySelector('.menu-close-icon');
+      const backToTop = document.getElementById('back-to-top');
+
+      // Mobile navigation: works with click, keyboard, and Escape.
+      function closeMenu() {
+        if (!menuToggle || !navLinks) return;
+        navLinks.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', '開啟導覽選單');
+        if (openIcon) openIcon.style.display = '';
+        if (closeIcon) closeIcon.style.display = 'none';
+      }
+      menuToggle?.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        if (isOpen) closeMenu();
+        else {
+          navLinks.classList.add('is-open');
+          menuToggle.setAttribute('aria-expanded', 'true');
+          menuToggle.setAttribute('aria-label', '關閉導覽選單');
+          if (openIcon) openIcon.style.display = 'none';
+          if (closeIcon) closeIcon.style.display = '';
+        }
+      });
+      navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+      document.addEventListener('click', event => {
+        if (navLinks?.classList.contains('is-open') && !event.target.closest('.nav-inner')) closeMenu();
+      });
+
+      // Header elevation and back-to-top visibility.
+      const onScroll = () => {
+        const scrolled = window.scrollY > 12;
+        header?.classList.toggle('is-scrolled', scrolled);
+        backToTop?.classList.toggle('visible', window.scrollY > 520);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Typing effect. The full phrase remains in HTML for accessibility/no-JS use.
+      const typeTarget = document.getElementById('typewriter-text');
+      const cursor = document.getElementById('typing-cursor');
+      if (typeTarget && !reduceMotion) {
+        const fullText = '勞基法不踩雷，創業經營更安心。';
+        typeTarget.textContent = '';
+        let index = 0;
+        const typeNext = () => {
+          if (index < fullText.length) {
+            typeTarget.textContent += fullText.charAt(index);
+            index += 1;
+            window.setTimeout(typeNext, index < 7 ? 105 : 78);
+          } else if (cursor) {
+            // Keep the finished title visible; stop the cursor blink after a brief beat.
+            window.setTimeout(() => { cursor.style.animation = 'none'; cursor.style.opacity = '1'; }, 1200);
+          }
+        };
+        window.setTimeout(typeNext, 280);
+      } else if (cursor) {
+        cursor.style.display = 'none';
+      }
+
+      // Reveal elements only when motion is allowed and IntersectionObserver is available.
+      const revealItems = document.querySelectorAll('.reveal');
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+        revealItems.forEach(item => observer.observe(item));
+      }
+
+      // Avoid claiming unavailable articles: knowledge cards link to relevant service sections.
+      // Smooth scrolling is native via CSS; this fallback keeps anchors usable in older browsers.
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', event => {
+          const id = anchor.getAttribute('href');
+          if (!id || id === '#') return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          if (!('scrollBehavior' in document.documentElement.style) || reduceMotion) {
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'auto', block: 'start' });
+            history.replaceState(null, '', id);
+          }
+        });
+      });
+
+      const year = document.getElementById('current-year');
+      if (year) year.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
